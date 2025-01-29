@@ -9,6 +9,7 @@ import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 import BackOffice from "./pages/backoffice";
 import Management from "./pages/management";
+import Operations from "./pages/operations";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
             <Route path="/auth" element={<Auth />} />
             <Route path="/backoffice" element={<BackOffice />} />
             <Route path="/management" element={<Management />} />
+            <Route path="/operations" element={<Operations />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </TooltipProvider>
