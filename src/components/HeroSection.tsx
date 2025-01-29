@@ -13,7 +13,7 @@ export function HeroSection() {
           AI Training Hub
         </h1>
         <p className="text-xl text-gray-600">
-          Enhance your productivity with generative AI in your role at Versova.
+          Enhance your productivity with generative AI in your role at Versova
         </p>
       </div>
     </div>
