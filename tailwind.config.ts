@@ -29,12 +29,12 @@ export default {
           foreground: "#FFFFFF",
         },
         secondary: {
-          DEFAULT: "#F97316",
+          DEFAULT: "#7E69AB",
           foreground: "#FFFFFF",
         },
         accent: {
-          DEFAULT: "#F3F4F6",
-          foreground: "#1F2937",
+          DEFAULT: "#E5DEFF",
+          foreground: "#1A1F2C",
         },
       },
       borderRadius: {
