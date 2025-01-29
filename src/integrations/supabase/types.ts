@@ -39,6 +39,21 @@ export type Database = {
         }
         Relationships: []
       }
+      modules_roles: {
+        Row: {
+          module_id: number
+          role_id: number
+        }
+        Insert: {
+          module_id: number
+          role_id: number
+        }
+        Update: {
+          module_id?: number
+          role_id?: number
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
@@ -63,6 +78,27 @@ export type Database = {
           full_name?: string | null
           id?: string
           updated_at?: string
+        }
+        Relationships: []
+      }
+      roles: {
+        Row: {
+          created_at: string
+          description: string | null
+          id: number
+          name: string | null
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          id?: number
+          name?: string | null
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          id?: number
+          name?: string | null
         }
         Relationships: []
       }

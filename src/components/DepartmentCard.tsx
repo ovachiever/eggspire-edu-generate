@@ -1,16 +1,26 @@
 import { LucideIcon } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
 
 interface DepartmentCardProps {
   title: string;
   description: string;
   icon: LucideIcon;
   courseCount: number;
+  route?: string;
 }
 
-export function DepartmentCard({ title, description, icon: Icon, courseCount }: DepartmentCardProps) {
+export function DepartmentCard({ title, description, icon: Icon, courseCount, route }: DepartmentCardProps) {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    if (route) {
+      navigate(route);
+    }
+  };
+
   return (
-    <Card className="hover:shadow-lg transition-shadow cursor-pointer">
+    <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={handleClick}>
       <CardHeader className="space-y-1">
         <div className="flex items-center space-x-3">
           <Icon className="w-6 h-6 text-primary" />
