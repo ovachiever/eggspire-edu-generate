@@ -15,7 +15,7 @@ const Operations = () => {
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <Link to="/operations/production">
+          <Link to="/production">
             <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
               <CardHeader>
                 <div className="flex items-center space-x-3">
