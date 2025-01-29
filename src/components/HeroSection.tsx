@@ -1,7 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { AuthDialog } from "./auth/AuthDialog";
+import { useAuth } from "@/contexts/AuthContext";
+import { Link } from "react-router-dom";
 
 export const HeroSection = () => {
+  const { user, signOut } = useAuth();
+
   return (
     <div className="flex flex-col items-center space-y-4 text-center">
       <img
@@ -15,8 +18,18 @@ export const HeroSection = () => {
         modules and track your progress.
       </p>
       <div className="flex gap-4">
-        <Button size="lg">Get Started</Button>
-        <AuthDialog />
+        {user ? (
+          <>
+            <Button size="lg">Start Learning</Button>
+            <Button variant="outline" onClick={signOut}>
+              Sign Out
+            </Button>
+          </>
+        ) : (
+          <Button size="lg" asChild>
+            <Link to="/auth">Get Started</Link>
+          </Button>
+        )}
       </div>
     </div>
   );

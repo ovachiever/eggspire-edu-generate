@@ -9,7 +9,105 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      modules: {
+        Row: {
+          created_at: string
+          department: string
+          description: string | null
+          duration: string
+          id: string
+          lessons_count: number
+          title: string
+        }
+        Insert: {
+          created_at?: string
+          department: string
+          description?: string | null
+          duration: string
+          id?: string
+          lessons_count?: number
+          title: string
+        }
+        Update: {
+          created_at?: string
+          department?: string
+          description?: string | null
+          duration?: string
+          id?: string
+          lessons_count?: number
+          title?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          email: string
+          full_name: string | null
+          id: string
+          updated_at: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          email: string
+          full_name?: string | null
+          id: string
+          updated_at?: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          email?: string
+          full_name?: string | null
+          id?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      user_progress: {
+        Row: {
+          completed_at: string | null
+          id: string
+          last_accessed: string
+          module_id: string
+          progress: number
+          user_id: string
+        }
+        Insert: {
+          completed_at?: string | null
+          id?: string
+          last_accessed?: string
+          module_id: string
+          progress?: number
+          user_id: string
+        }
+        Update: {
+          completed_at?: string | null
+          id?: string
+          last_accessed?: string
+          module_id?: string
+          progress?: number
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_progress_module_id_fkey"
+            columns: ["module_id"]
+            isOneToOne: false
+            referencedRelation: "modules"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "user_progress_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
