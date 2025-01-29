@@ -9,7 +9,7 @@ export function HeroSection() {
             className="h-8 sm:h-10 w-auto" // Reduced from h-16 sm:h-20 to h-8 sm:h-10
           />
         </div>
-        <h1 className="text-3xl font-bold text-gray-900 sm:text-5xl mb-4">
+        <h1 className="text-2xl font-bold text-gray-900 sm:text-5xl mb-4">
           AI Training Hub
         </h1>
         <p className="text-xl text-gray-600">
