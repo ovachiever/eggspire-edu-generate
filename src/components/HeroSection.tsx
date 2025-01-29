@@ -4,7 +4,7 @@ export function HeroSection() {
       <div className="max-w-3xl mx-auto text-center">
         <div className="flex justify-center mb-8">
           <img 
-            src="/lovable-uploads/f6072392-c3fa-4ebf-a41d-ee23f2134c56.png" 
+            src="/lovable-uploads/f562e91c-4123-457c-93c4-91a97374ee9f.png" 
             alt="Versova Logo" 
             className="h-16 sm:h-20 w-auto"
           />
