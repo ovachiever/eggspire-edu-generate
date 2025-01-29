@@ -13,8 +13,10 @@ export function HeroSection() {
           AI Training Hub
         </h1>
         <p className="text-xl text-gray-600">
-          Enhance your productivity with AI-powered tools. <br /> Learn how to leverage generative AI
-          in your role at Versova.
+          Enhance your productivity with AI-powered tools.
+        </p>
+        <p className="text-xl text-gray-600">
+          Learn how to leverage generative AI in your role at Versova.
         </p>
       </div>
     </div>
