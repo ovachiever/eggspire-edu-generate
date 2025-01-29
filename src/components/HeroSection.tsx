@@ -6,7 +6,7 @@ export function HeroSection() {
           <img 
             src="/lovable-uploads/f562e91c-4123-457c-93c4-91a97374ee9f.png" 
             alt="Versova Logo" 
-            className="h-16 sm:h-20 w-auto"
+            className="h-8 sm:h-10 w-auto" // Reduced from h-16 sm:h-20 to h-8 sm:h-10
           />
         </div>
         <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl mb-4">
