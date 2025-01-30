@@ -1,27 +1,71 @@
-import React from 'react';
+import { useModules } from "@/hooks/useModules";
+import { CourseCard } from "@/components/CourseCard";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const HR = () => {
+  const { data: modules, isLoading } = useModules();
+
+  const hrModules = modules?.filter(
+    (module) => module.department === "HR"
+  ) || [];
+
+  if (isLoading) {
+    return (
+      <div className="container py-8">
+        <div className="space-y-4">
+          <h1 className="text-4xl font-bold">Human Resources Training</h1>
+          <p>Loading modules...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div>
-      <h1>Human Resources</h1>
-      <p>Welcome to the HR department. Here, you can find resources and training modules related to HR.</p>
+    <div className="min-h-screen bg-background">
+      <div className="container py-8 space-y-8">
+        <div className="space-y-4">
+          <h1 className="text-4xl font-bold">Human Resources Training</h1>
+          <p className="text-xl text-muted-foreground">
+            Master AI-powered tools and techniques for modern HR management
+          </p>
+        </div>
 
-      <h2>Training Modules</h2>
-      <ul>
-        <li><a href="/hr/employee-onboarding">Employee Onboarding</a></li>
-        <li><a href="/hr/payroll-processing">Payroll Processing</a></li>
-        <li><a href="/hr/benefits-management">Benefits Management</a></li>
-      </ul>
+        <Tabs defaultValue="all" className="space-y-6">
+          <TabsList>
+            <TabsTrigger value="all">All Modules</TabsTrigger>
+            <TabsTrigger value="in-progress">In Progress</TabsTrigger>
+            <TabsTrigger value="completed">Completed</TabsTrigger>
+          </TabsList>
 
-      <h2>Resources</h2>
-      <ul>
-        <li><a href="/hr/policies">HR Policies</a></li>
-        <li><a href="/hr/guidelines">Guidelines</a></li>
-        <li><a href="/hr/forms">Forms</a></li>
-      </ul>
+          <TabsContent value="all" className="space-y-6">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {hrModules.map((module) => (
+                <CourseCard key={module.id} {...module} />
+              ))}
+            </div>
+          </TabsContent>
 
-      <h2>Feedback</h2>
-      <p>We value your feedback. Please fill out the <a href="/hr/feedback-form">HR Feedback Form</a>.</p>
+          <TabsContent value="in-progress" className="space-y-6">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {hrModules
+                .filter((module) => module.progress > 0 && module.progress < 100)
+                .map((module) => (
+                  <CourseCard key={module.id} {...module} />
+                ))}
+            </div>
+          </TabsContent>
+
+          <TabsContent value="completed" className="space-y-6">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {hrModules
+                .filter((module) => module.progress === 100)
+                .map((module) => (
+                  <CourseCard key={module.id} {...module} />
+                ))}
+            </div>
+          </TabsContent>
+        </Tabs>
+      </div>
     </div>
   );
 };
